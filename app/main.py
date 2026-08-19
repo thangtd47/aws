@@ -24,3 +24,8 @@ def create_item(name: str, db: Session = Depends(get_db)):
 @app.get("/items")
 def list_items(db: Session = Depends(get_db)):
     return db.query(models.Item).all()
+
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="127.0.0.1", port=8000)
